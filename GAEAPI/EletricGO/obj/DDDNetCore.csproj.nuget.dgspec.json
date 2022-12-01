@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\a\\OneDrive\\Documentos\\lapr5-g058-dotnet\\GAEAPI\\EletricGO\\DDDNetCore.csproj": {}
+    "C:\\Users\\biach\\OneDrive\\Documents\\lapr5-g058-dotnet\\GAEAPI\\EletricGO\\DDDNetCore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\a\\OneDrive\\Documentos\\lapr5-g058-dotnet\\GAEAPI\\EletricGO\\DDDNetCore.csproj": {
+    "C:\\Users\\biach\\OneDrive\\Documents\\lapr5-g058-dotnet\\GAEAPI\\EletricGO\\DDDNetCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\a\\OneDrive\\Documentos\\lapr5-g058-dotnet\\GAEAPI\\EletricGO\\DDDNetCore.csproj",
+        "projectUniqueName": "C:\\Users\\biach\\OneDrive\\Documents\\lapr5-g058-dotnet\\GAEAPI\\EletricGO\\DDDNetCore.csproj",
         "projectName": "DDDNetCore",
-        "projectPath": "C:\\Users\\a\\OneDrive\\Documentos\\lapr5-g058-dotnet\\GAEAPI\\EletricGO\\DDDNetCore.csproj",
-        "packagesPath": "C:\\Users\\a\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\a\\OneDrive\\Documentos\\lapr5-g058-dotnet\\GAEAPI\\EletricGO\\obj\\",
+        "projectPath": "C:\\Users\\biach\\OneDrive\\Documents\\lapr5-g058-dotnet\\GAEAPI\\EletricGO\\DDDNetCore.csproj",
+        "packagesPath": "C:\\Users\\biach\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\biach\\OneDrive\\Documents\\lapr5-g058-dotnet\\GAEAPI\\EletricGO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\a\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\biach\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp6.0"
@@ -106,7 +106,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
