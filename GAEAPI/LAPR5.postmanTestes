@@ -1,0 +1,989 @@
+{
+	"info": {
+		"_postman_id": "42e5f720-730a-4f78-b507-1f0dead61474",
+		"name": "LAPR5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18289110"
+	},
+	"item": [
+		{
+			"name": "Armazem",
+			"item": [
+				{
+					"name": "Create Armazem",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct designacao\", function () {\r",
+									"    pm.expect(response.designacao).to.eql(\"designacaoTeste\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct endereco\", function () {\r",
+									"    pm.expect(response.endereco).to.eql(\"ruaTeste,cidadeTeste,1234-123\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct lojaId\", function () {\r",
+									"    pm.expect(response.lojaId).to.eql(\"loja10\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct municipio\", function () {\r",
+									"    pm.expect(response.municipio).to.eql(\"municipioTeste\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct latitude\", function () {\r",
+									"    pm.expect(response.latitude).to.eql(15);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct longitude\", function () {\r",
+									"    pm.expect(response.longitude).to.eql(10);\r",
+									"});\r",
+									"\r",
+									"pm.environment.set(\"ArmazemID\", response.id); // save the category's id for further tests\r",
+									"\r",
+									"console.log(pm.environment.get(\"ArmazemID\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"designacao\": \"designacaoTeste\",\r\n    \"endereco\": \"ruaTeste,cidadeTeste,1234-123\",\r\n    \"lojaId\": \"loja10\",\r\n    \"municipio\": \"municipioTeste\",\r\n    \"latitude\": 15,\r\n    \"longitude\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Armazens",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Armazens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get newly created Armazem",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"console.log(pm.environment.get(\"ArmazemID\"));\r",
+									"\r",
+									"pm.test(\"Category creation returns status 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Returned Armazem has correct ArmazemID\", function () {\r",
+									"    pm.expect(response.id).to.eql(pm.environment.get(\"ArmazemID\"));\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Armazens/{{ArmazemID}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Armazens",
+								"{{ArmazemID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alter created Armazem",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"console.log(pm.environment.get(\"ArmazemID\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"designacao\": \"designacaoTesteAlterada\",\r\n    \"endereco\": \"ruaTesteAlterada,cidadeTeste,1234-123\",\r\n    \"lojaId\": \"loja99\",\r\n    \"municipio\": \"municipioTesteAlterado\",\r\n    \"latitude\": 99,\r\n    \"longitude\": 99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Armazens/{{ArmazemID}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Armazens",
+								"{{ArmazemID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get altered Armazem",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"console.log(pm.environment.get(\"ArmazemID\"));\r",
+									"\r",
+									"pm.test(\"Body returns the correct designacao\", function () {\r",
+									"    pm.expect(response.designacao).to.eql(\"designacaoTesteAlterada\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct endereco\", function () {\r",
+									"    pm.expect(response.endereco).to.eql(\"ruaTesteAlterada,cidadeTeste,1234-123\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct lojaId\", function () {\r",
+									"    pm.expect(response.lojaId).to.eql(\"loja99\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct municipio\", function () {\r",
+									"    pm.expect(response.municipio).to.eql(\"municipioTesteAlterado\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct latitude\", function () {\r",
+									"    pm.expect(response.latitude).to.eql(99);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct longitude\", function () {\r",
+									"    pm.expect(response.longitude).to.eql(99);\r",
+									"});\r",
+									"\r",
+									"console.log(pm.environment.get(\"ArmazemID\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Armazens/{{ArmazemID}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Armazens",
+								"{{ArmazemID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate created Armazem",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Armazens/{{ArmazemID}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Armazens",
+								"{{ArmazemID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete created Armazem",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"console.log(pm.environment.get(\"ArmazemID\"));\r",
+									"\r",
+									"pm.test(\"Armazem creation returns status 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Armazens/{{ArmazemID}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Armazens",
+								"{{ArmazemID}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fail Get deleted Armazem",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"console.log(pm.environment.get(\"ArmazemID\"));\r",
+									"\r",
+									"pm.test(\"Category creation returns status 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Armazens/{{ArmazemID}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Armazens",
+								"{{ArmazemID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Entrega",
+			"item": [
+				{
+					"name": "Create Entrega",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct dataEntrega\", function () {\r",
+									"    pm.expect(response.dataEntrega).to.eql(\"10/01/1996\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct massaEntrega\", function () {\r",
+									"    pm.expect(response.massaEntrega).to.eql(10);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct tempoColocar\", function () {\r",
+									"    pm.expect(response.tempoColocar).to.eql(10);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct tempoRetirar\", function () {\r",
+									"    pm.expect(response.tempoRetirar).to.eql(10);\r",
+									"});\r",
+									"\r",
+									"pm.environment.set(\"EntregaID\", response.id); // save the category's id for further tests\r",
+									"\r",
+									"console.log(pm.environment.get(\"EntregaID\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"dataEntrega\": \"10/01/1996\",\r\n    \"massaEntrega\": 10,\r\n    \"tempoColocar\": 10,\r\n    \"tempoRetirar\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Entregas",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Entregas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get newly created Entrega",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"console.log(pm.environment.get(\"EntregaID\"));\r",
+									"\r",
+									"pm.test(\"Category creation returns status 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Returned Armazem has correct EntregaID\", function () {\r",
+									"    pm.expect(response.id).to.eql(pm.environment.get(\"EntregaID\"));\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Entregas/{{EntregaID}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Entregas",
+								"{{EntregaID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate created Entrega",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Entregas/{{EntregaID}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Entregas",
+								"{{EntregaID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete created Entrega",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"console.log(pm.environment.get(\"EntregaID\"));\r",
+									"\r",
+									"pm.test(\"Armazem creation returns status 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Entregas/{{EntregaID}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Entregas",
+								"{{EntregaID}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fail Get deleted Entrega",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"console.log(pm.environment.get(\"EntregaID\"));\r",
+									"\r",
+									"pm.test(\"Category creation returns status 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Entregas/{{EntregaID}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Entregas",
+								"{{EntregaID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Armazem for Entrega",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct designacao\", function () {\r",
+									"    pm.expect(response.designacao).to.eql(\"designacaoTeste\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct endereco\", function () {\r",
+									"    pm.expect(response.endereco).to.eql(\"ruaTeste,cidadeTeste,1234-123\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct lojaId\", function () {\r",
+									"    pm.expect(response.lojaId).to.eql(\"loja10\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct municipio\", function () {\r",
+									"    pm.expect(response.municipio).to.eql(\"municipioTeste\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct latitude\", function () {\r",
+									"    pm.expect(response.latitude).to.eql(15);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct longitude\", function () {\r",
+									"    pm.expect(response.longitude).to.eql(10);\r",
+									"});\r",
+									"\r",
+									"pm.environment.set(\"ArmazemID\", response.id); // save the category's id for further tests\r",
+									"\r",
+									"console.log(pm.environment.get(\"ArmazemID\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"designacao\": \"designacaoTeste\",\r\n    \"endereco\": \"ruaTeste,cidadeTeste,1234-123\",\r\n    \"lojaId\": \"loja10\",\r\n    \"municipio\": \"municipioTeste\",\r\n    \"latitude\": 15,\r\n    \"longitude\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Armazens",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Armazens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get newly created Armazem",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"console.log(pm.environment.get(\"ArmazemID\"));\r",
+									"\r",
+									"pm.test(\"Category creation returns status 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Returned Armazem has correct ArmazemID\", function () {\r",
+									"    pm.expect(response.id).to.eql(pm.environment.get(\"ArmazemID\"));\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Armazens/{{ArmazemID}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Armazens",
+								"{{ArmazemID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Entrega with previous ArmazemID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const armazemID = pm.environment.get(\"ArmazemID\");\r",
+									"\r",
+									"pm.environment.set(\"armazemID\", armazemID);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"/*pm.test(\"Body returns the correct armazemID\", function () {\r",
+									"    pm.expect(response.armazemId).to.eql(pm.environment.get(\"ArmazemID\"));\r",
+									"});*/\r",
+									"\r",
+									"pm.test(\"Body returns the correct dataEntrega\", function () {\r",
+									"    pm.expect(response.dataEntrega).to.eql(\"10/01/1996\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct massaEntrega\", function () {\r",
+									"    pm.expect(response.massaEntrega).to.eql(10);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct tempoColocar\", function () {\r",
+									"    pm.expect(response.tempoColocar).to.eql(10);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body returns the correct tempoRetirar\", function () {\r",
+									"    pm.expect(response.tempoRetirar).to.eql(10);\r",
+									"});\r",
+									"\r",
+									"pm.environment.set(\"EntregaID\", response.id); // save the category's id for further tests\r",
+									"console.log(\"Entrega ID:\")\r",
+									"console.log(pm.environment.get(\"EntregaID\"));\r",
+									"console.log(\"Armazem ID:\")\r",
+									"console.log(pm.environment.get(\"ArmazemID\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"armazemId\": {\r\n            \"value\": \"{{armazemID}}\"\r\n        },\r\n    \"dataEntrega\": \"10/01/1996\",\r\n    \"massaEntrega\": 10,\r\n    \"tempoColocar\": 10,\r\n    \"tempoRetirar\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/Entregas",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Entregas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get newly created Entrega",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"console.log(pm.environment.get(\"EntregaID\"));\r",
+									"\r",
+									"pm.test(\"Category creation returns status 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Returned Armazem has correct EntregaID\", function () {\r",
+									"    pm.expect(response.id).to.eql(pm.environment.get(\"EntregaID\"));\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Entregas/{{EntregaID}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Entregas",
+								"{{EntregaID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate created Entrega",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Entregas/{{EntregaID}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Entregas",
+								"{{EntregaID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete created Entrega",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"console.log(pm.environment.get(\"EntregaID\"));\r",
+									"\r",
+									"pm.test(\"Armazem creation returns status 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Entregas/{{EntregaID}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Entregas",
+								"{{EntregaID}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate created Armazem",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Armazens/{{ArmazemID}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Armazens",
+								"{{ArmazemID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete created Armazem",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"console.log(pm.environment.get(\"ArmazemID\"));\r",
+									"\r",
+									"pm.test(\"Armazem creation returns status 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Armazens/{{ArmazemID}}/hard",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Armazens",
+								"{{ArmazemID}}",
+								"hard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fail Get deleted Entrega",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"console.log(pm.environment.get(\"EntregaID\"));\r",
+									"\r",
+									"pm.test(\"Category creation returns status 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Entregas/{{EntregaID}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Entregas",
+								"{{EntregaID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

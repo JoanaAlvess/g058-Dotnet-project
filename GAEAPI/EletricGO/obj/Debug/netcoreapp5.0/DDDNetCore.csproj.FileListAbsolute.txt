@@ -1,0 +1,90 @@
+C:\Users\biach\OneDrive\Documents\dddnetcore\bin\Debug\netcoreapp5.0\appsettings.Development.json
+C:\Users\biach\OneDrive\Documents\dddnetcore\bin\Debug\netcoreapp5.0\appsettings.json
+C:\Users\biach\OneDrive\Documents\dddnetcore\bin\Debug\netcoreapp5.0\DDDNetCore.exe
+C:\Users\biach\OneDrive\Documents\dddnetcore\bin\Debug\netcoreapp5.0\DDDNetCore.deps.json
+C:\Users\biach\OneDrive\Documents\dddnetcore\bin\Debug\netcoreapp5.0\DDDNetCore.runtimeconfig.json
+C:\Users\biach\OneDrive\Documents\dddnetcore\bin\Debug\netcoreapp5.0\DDDNetCore.runtimeconfig.dev.json
+C:\Users\biach\OneDrive\Documents\dddnetcore\bin\Debug\netcoreapp5.0\DDDNetCore.dll
+C:\Users\biach\OneDrive\Documents\dddnetcore\bin\Debug\netcoreapp5.0\DDDNetCore.pdb
+C:\Users\biach\OneDrive\Documents\dddnetcore\bin\Debug\netcoreapp5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\biach\OneDrive\Documents\dddnetcore\bin\Debug\netcoreapp5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\biach\OneDrive\Documents\dddnetcore\bin\Debug\netcoreapp5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\biach\OneDrive\Documents\dddnetcore\bin\Debug\netcoreapp5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\biach\OneDrive\Documents\dddnetcore\bin\Debug\netcoreapp5.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\biach\OneDrive\Documents\dddnetcore\bin\Debug\netcoreapp5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\biach\OneDrive\Documents\dddnetcore\bin\Debug\netcoreapp5.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
+C:\Users\biach\OneDrive\Documents\dddnetcore\bin\Debug\netcoreapp5.0\Newtonsoft.Json.dll
+C:\Users\biach\OneDrive\Documents\dddnetcore\bin\Debug\netcoreapp5.0\Newtonsoft.Json.Bson.dll
+C:\Users\biach\OneDrive\Documents\dddnetcore\obj\Debug\netcoreapp5.0\DDDNetCore.csproj.AssemblyReference.cache
+C:\Users\biach\OneDrive\Documents\dddnetcore\obj\Debug\netcoreapp5.0\DDDNetCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\biach\OneDrive\Documents\dddnetcore\obj\Debug\netcoreapp5.0\DDDNetCore.AssemblyInfoInputs.cache
+C:\Users\biach\OneDrive\Documents\dddnetcore\obj\Debug\netcoreapp5.0\DDDNetCore.AssemblyInfo.cs
+C:\Users\biach\OneDrive\Documents\dddnetcore\obj\Debug\netcoreapp5.0\DDDNetCore.csproj.CoreCompileInputs.cache
+C:\Users\biach\OneDrive\Documents\dddnetcore\obj\Debug\netcoreapp5.0\DDDNetCore.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\biach\OneDrive\Documents\dddnetcore\obj\Debug\netcoreapp5.0\DDDNetCore.RazorTargetAssemblyInfo.cache
+C:\Users\biach\OneDrive\Documents\dddnetcore\obj\Debug\netcoreapp5.0\DDDNetCore.csproj.CopyComplete
+C:\Users\biach\OneDrive\Documents\dddnetcore\obj\Debug\netcoreapp5.0\DDDNetCore.dll
+C:\Users\biach\OneDrive\Documents\dddnetcore\obj\Debug\netcoreapp5.0\refint\DDDNetCore.dll
+C:\Users\biach\OneDrive\Documents\dddnetcore\obj\Debug\netcoreapp5.0\DDDNetCore.pdb
+C:\Users\biach\OneDrive\Documents\dddnetcore\obj\Debug\netcoreapp5.0\DDDNetCore.genruntimeconfig.cache
+C:\Users\biach\OneDrive\Documents\dddnetcore\obj\Debug\netcoreapp5.0\ref\DDDNetCore.dll
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.csproj.AssemblyReference.cache
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.AssemblyInfoInputs.cache
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.AssemblyInfo.cs
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.csproj.CoreCompileInputs.cache
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.dll
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\refint\DDDNetCore.dll
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.pdb
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\appsettings.Development.json
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\appsettings.json
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\DDDNetCore.exe
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\DDDNetCore.deps.json
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\DDDNetCore.runtimeconfig.json
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\DDDNetCore.runtimeconfig.dev.json
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\DDDNetCore.dll
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\DDDNetCore.pdb
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\Newtonsoft.Json.dll
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\Newtonsoft.Json.Bson.dll
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.RazorTargetAssemblyInfo.cache
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.csproj.CopyComplete
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.genruntimeconfig.cache
+C:\Users\biach\OneDrive\Documents\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\ref\DDDNetCore.dll
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.csprojAssemblyReference.cache
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.AssemblyInfoInputs.cache
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.AssemblyInfo.cs
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.csproj.CoreCompileInputs.cache
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.dll
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\ref\DDDNetCore.dll
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.pdb
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\appsettings.Development.json
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\appsettings.json
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\DDDNetCore.exe
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\DDDNetCore.deps.json
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\DDDNetCore.runtimeconfig.json
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\DDDNetCore.runtimeconfig.dev.json
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\DDDNetCore.dll
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\ref\DDDNetCore.dll
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\DDDNetCore.pdb
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\Newtonsoft.Json.dll
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\bin\Debug\netcoreapp5.0\Newtonsoft.Json.Bson.dll
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.RazorTargetAssemblyInfo.cache
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.csproj.CopyComplete
+C:\Users\a\OneDrive\Documentos\lapr5-g058\New folder\obj\Debug\netcoreapp5.0\DDDNetCore.genruntimeconfig.cache
