@@ -72,12 +72,5 @@ steps:
     PathtoPublish: '$(build.artifactstagingdirectory)'
   condition: succeededOrFailed()
   
-- task: AzureWebApp@1
-  inputs:
-    azureSubscription: 'Azure for Students(c2de5996-38a0-4f21-82e0-37de5f9342d3)'
-    appType: 'webApp'
-    appName: 'GestorArmazem'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    deploymentMethod: 'auto'
 
 
