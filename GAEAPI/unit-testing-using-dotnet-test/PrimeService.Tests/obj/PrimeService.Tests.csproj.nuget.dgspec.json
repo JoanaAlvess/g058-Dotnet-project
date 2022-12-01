@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\biach\\OneDrive\\Documents\\lapr5-g058-dotnet\\GAEAPI\\unit-testing-using-dotnet-test\\PrimeService.Tests\\PrimeService.Tests.csproj": {}
+    "C:\\Users\\a\\OneDrive\\Documentos\\lapr5-g058\\GAEAPI\\unit-testing-using-dotnet-test\\PrimeService.Tests\\PrimeService.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\biach\\OneDrive\\Documents\\lapr5-g058-dotnet\\GAEAPI\\EletricGO\\DDDNetCore.csproj": {
+    "C:\\Users\\a\\OneDrive\\Documentos\\lapr5-g058\\GAEAPI\\EletricGO\\DDDNetCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\biach\\OneDrive\\Documents\\lapr5-g058-dotnet\\GAEAPI\\EletricGO\\DDDNetCore.csproj",
+        "projectUniqueName": "C:\\Users\\a\\OneDrive\\Documentos\\lapr5-g058\\GAEAPI\\EletricGO\\DDDNetCore.csproj",
         "projectName": "DDDNetCore",
-        "projectPath": "C:\\Users\\biach\\OneDrive\\Documents\\lapr5-g058-dotnet\\GAEAPI\\EletricGO\\DDDNetCore.csproj",
-        "packagesPath": "C:\\Users\\biach\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\biach\\OneDrive\\Documents\\lapr5-g058-dotnet\\GAEAPI\\EletricGO\\obj\\",
+        "projectPath": "C:\\Users\\a\\OneDrive\\Documentos\\lapr5-g058\\GAEAPI\\EletricGO\\DDDNetCore.csproj",
+        "packagesPath": "C:\\Users\\a\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\a\\OneDrive\\Documentos\\lapr5-g058\\GAEAPI\\EletricGO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\biach\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\a\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp6.0"
@@ -106,21 +106,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\biach\\OneDrive\\Documents\\lapr5-g058-dotnet\\GAEAPI\\unit-testing-using-dotnet-test\\PrimeService.Tests\\PrimeService.Tests.csproj": {
+    "C:\\Users\\a\\OneDrive\\Documentos\\lapr5-g058\\GAEAPI\\unit-testing-using-dotnet-test\\PrimeService.Tests\\PrimeService.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\biach\\OneDrive\\Documents\\lapr5-g058-dotnet\\GAEAPI\\unit-testing-using-dotnet-test\\PrimeService.Tests\\PrimeService.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\a\\OneDrive\\Documentos\\lapr5-g058\\GAEAPI\\unit-testing-using-dotnet-test\\PrimeService.Tests\\PrimeService.Tests.csproj",
         "projectName": "PrimeService.Tests",
-        "projectPath": "C:\\Users\\biach\\OneDrive\\Documents\\lapr5-g058-dotnet\\GAEAPI\\unit-testing-using-dotnet-test\\PrimeService.Tests\\PrimeService.Tests.csproj",
-        "packagesPath": "C:\\Users\\biach\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\biach\\OneDrive\\Documents\\lapr5-g058-dotnet\\GAEAPI\\unit-testing-using-dotnet-test\\PrimeService.Tests\\obj\\",
+        "projectPath": "C:\\Users\\a\\OneDrive\\Documentos\\lapr5-g058\\GAEAPI\\unit-testing-using-dotnet-test\\PrimeService.Tests\\PrimeService.Tests.csproj",
+        "packagesPath": "C:\\Users\\a\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\a\\OneDrive\\Documentos\\lapr5-g058\\GAEAPI\\unit-testing-using-dotnet-test\\PrimeService.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\biach\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\a\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -132,8 +132,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\biach\\OneDrive\\Documents\\lapr5-g058-dotnet\\GAEAPI\\EletricGO\\DDDNetCore.csproj": {
-                "projectPath": "C:\\Users\\biach\\OneDrive\\Documents\\lapr5-g058-dotnet\\GAEAPI\\EletricGO\\DDDNetCore.csproj"
+              "C:\\Users\\a\\OneDrive\\Documentos\\lapr5-g058\\GAEAPI\\EletricGO\\DDDNetCore.csproj": {
+                "projectPath": "C:\\Users\\a\\OneDrive\\Documentos\\lapr5-g058\\GAEAPI\\EletricGO\\DDDNetCore.csproj"
               }
             }
           }
@@ -189,7 +189,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
