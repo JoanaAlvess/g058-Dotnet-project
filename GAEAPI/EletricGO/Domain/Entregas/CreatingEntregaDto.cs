@@ -10,9 +10,9 @@ namespace DDDSample1.Domain.Entregas
         public int TempoColocar { get; set; }
         public int TempoRetirar { get; set; }
 
-        public CreatingEntregaDto(ArmazemId armazemId, string dataEntrega, double massaEntrega, int tempoColocar, int tempoRetirar)
+        public CreatingEntregaDto(string armazemId, string dataEntrega, double massaEntrega, int tempoColocar, int tempoRetirar)
         {
-            this.Armazem_Id = armazemId;
+            this.Armazem_Id = new ArmazemId(armazemId);
             this.DataEntrega = dataEntrega;
             this.MassaEntrega = massaEntrega;
             this.TempoColocar = tempoColocar;
