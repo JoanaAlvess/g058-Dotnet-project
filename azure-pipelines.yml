@@ -80,3 +80,15 @@ steps:
     zipAfterPublish: True
 
 
+- task: AzureRmWebAppDeployment@4
+
+  displayName: 'Azure App Service Deploy: GestorArmazem'
+
+  inputs:
+
+    azureSubscription: 'Azure for Students(c2de5996-38a0-4f21-82e0-37de5f9342d3)'
+
+    WebAppName: GestorArmazem
+
+
+
