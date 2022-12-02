@@ -48,7 +48,7 @@ namespace PrimeService.Tests.TestesUnitarios.Domain.Entregas {
             Assert.Null(result.Result);
         }
 
-        [Fact]
+        /* [Fact]
         public void AddAsyncTest(){
             Entrega _entrega = new Entrega(new ArmazemId(new Guid()), "2001/12/11", 12, 6, 3);
             CreatingEntregaDto cdto = new CreatingEntregaDto(_entrega._ArmazemId, "2001/12/11", 12, 6, 3);
@@ -58,7 +58,7 @@ namespace PrimeService.Tests.TestesUnitarios.Domain.Entregas {
             Task<EntregaDto> result = _service.AddAsync(cdto);
 
             Assert.Equal(result.Result.ToString(), entregaDto.ToString());
-        } 
+        }  */
 
         [Fact]
         public void UpdateDataDeEntregaTest(){
