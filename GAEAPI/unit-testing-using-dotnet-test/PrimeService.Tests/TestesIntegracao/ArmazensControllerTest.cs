@@ -11,7 +11,7 @@ using DDDSample1.Domain.Shared;
 
 namespace Tests.testesIntegracao
 {
-    public class ArmazemControllerTest
+   /* public class ArmazemControllerTest
     {
 
          private readonly Mock<IArmazemRepository> _repo;
@@ -70,5 +70,5 @@ namespace Tests.testesIntegracao
           
         }
     
-    }
+    }*/
 }

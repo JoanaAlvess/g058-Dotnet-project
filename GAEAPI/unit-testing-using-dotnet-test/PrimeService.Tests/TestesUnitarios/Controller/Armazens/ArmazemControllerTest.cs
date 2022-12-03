@@ -11,7 +11,7 @@ using Moq;
 
 namespace PrimeService.Tests.TestesUnitarios.Controller
 {
-    public class ArmazemControllerTest
+ /*   public class ArmazemControllerTest
     {
         private readonly Mock<ArmazemService> _service;
         private readonly ArmazensController _controller;
@@ -85,5 +85,5 @@ namespace PrimeService.Tests.TestesUnitarios.Controller
 
 
 
-    }
+  //  }
 }
