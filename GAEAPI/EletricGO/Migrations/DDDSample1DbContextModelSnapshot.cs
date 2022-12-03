@@ -102,6 +102,22 @@ namespace DDDNetCore.Migrations
 
             modelBuilder.Entity("DDDSample1.Domain.Armazens.Armazem", b =>
                 {
+                    b.OwnsOne("DDDSample1.Domain.Armazens.CidadeNo", "_CidadeNo", b1 =>
+                        {
+                            b1.Property<string>("ArmazemId")
+                                .HasColumnType("varchar(255)");
+
+                            b1.Property<int>("no")
+                                .HasColumnType("int");
+
+                            b1.HasKey("ArmazemId");
+
+                            b1.ToTable("Armazens");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ArmazemId");
+                        });
+
                     b.OwnsOne("DDDSample1.Domain.Armazens.Designacao", "_Designacao", b1 =>
                         {
                             b1.Property<string>("ArmazemId")
@@ -197,6 +213,8 @@ namespace DDDNetCore.Migrations
                             b1.WithOwner()
                                 .HasForeignKey("ArmazemId");
                         });
+
+                    b.Navigation("_CidadeNo");
 
                     b.Navigation("_Designacao");
 

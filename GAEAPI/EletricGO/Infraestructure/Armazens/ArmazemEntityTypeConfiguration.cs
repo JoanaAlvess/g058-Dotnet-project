@@ -17,6 +17,7 @@ namespace DDDSample1.Infrastructure.Armazens
             builder.OwnsOne(b => b._Endereco);
             builder.OwnsOne(b => b._LojaId);
             builder.OwnsOne(b => b._Designacao);
+            builder.OwnsOne(b=> b._CidadeNo);
 
             
             //builder.Property<bool>("_active").HasColumnName("Active");

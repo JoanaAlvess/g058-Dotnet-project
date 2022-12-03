@@ -15,6 +15,8 @@ namespace DDDSample1.Domain.Armazens{
         public Endereco _Endereco { get;  private set; }
         public Designacao _Designacao { get;  private set; }
 
+        public CidadeNo _CidadeNo {get; private set;}
+
         public ICollection<Entrega> Entregas { get; set; }
         public bool Active{ get;  private set; }
 
@@ -32,7 +34,20 @@ namespace DDDSample1.Domain.Armazens{
             this._LojaId = new LojaId(lojaId);
             this._Designacao = new Designacao(designacao);
             this._Endereco = new Endereco(endereco); 
+            this._CidadeNo = new CidadeNo(0);
         } 
+        public Armazem(double longitude, double latitude, string endereco, string designacao, string municipio, string lojaId,int cidadeNo)
+        {
+            this.Id = new ArmazemId(Guid.NewGuid());
+            this._Longitude = new Longitude(longitude);
+            this._Latitude = new Latitude(latitude);
+            this._Municipio = new Municipio(municipio);
+            this._LojaId = new LojaId(lojaId);
+            this._Designacao = new Designacao(designacao);
+            this._Endereco = new Endereco(endereco); 
+            this._CidadeNo = new CidadeNo(cidadeNo);
+        } 
+
 
         
         

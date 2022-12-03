@@ -16,7 +16,9 @@ namespace DDDSample1.Domain.Armazens
 
         public double Longitude{get;set;}
 
-        public CreatingArmazemDto(string Designacao,string Endereco,string LojaId,string Municipio,double Latitude,double Longitude){
+        public int CidadeNo{get;set;}
+
+       /* public CreatingArmazemDto(string Designacao,string Endereco,string LojaId,string Municipio,double Latitude,double Longitude){
             //this.Id = Id;
             this.Designacao = Designacao;
             this.Endereco = Endereco;
@@ -24,6 +26,17 @@ namespace DDDSample1.Domain.Armazens
             this.Municipio = Municipio;
             this.Latitude = Latitude;
             this.Longitude = Longitude;
+        }*/
+
+          public CreatingArmazemDto(string Designacao,string Endereco,string LojaId,string Municipio,double Latitude,double Longitude,int CidadeNo){
+            //this.Id = Id;
+            this.Designacao = Designacao;
+            this.Endereco = Endereco;
+            this.LojaId = LojaId;
+            this.Municipio = Municipio;
+            this.Latitude = Latitude;
+            this.Longitude = Longitude;
+            this.CidadeNo = CidadeNo;
         }
     }
     

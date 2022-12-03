@@ -2,6 +2,9 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using DDDSample1.Domain.Shared;
 using System.Net.Http;
+using Newtonsoft.Json;
+using System.Text;
+using System;
 
 namespace DDDSample1.Domain.Armazens
 {
@@ -15,6 +18,9 @@ namespace DDDSample1.Domain.Armazens
         {
             this._unitOfWork = unitOfWork;
             this._repo = repo;
+            client.DefaultRequestHeaders
+      .Accept
+      .Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
 
           public async Task<List<ArmazemDto>> GetAllAsync()
@@ -22,7 +28,7 @@ namespace DDDSample1.Domain.Armazens
             var list = await this._repo.GetAllAsync();
             
          List<ArmazemDto> listDto = list.ConvertAll<ArmazemDto>(arm => 
-                new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude)); 
+                new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no)); 
 
             return listDto;
         }
@@ -34,30 +40,35 @@ namespace DDDSample1.Domain.Armazens
             if(arm == null)
                 return null;
 
-            return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude);
+            return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no);
         }
     
         public async Task<ArmazemDto> AddAsync(CreatingArmazemDto dto)
         {
-            var arm = new Armazem(dto.Longitude, dto.Latitude, dto.Endereco, dto.Designacao, dto.Municipio, dto.LojaId);
+            var arm = new Armazem(dto.Longitude, dto.Latitude, dto.Endereco, dto.Designacao, dto.Municipio, dto.LojaId,dto.CidadeNo);
 
             await this._repo.AddAsync(arm);
 
             await this._unitOfWork.CommitAsync();
 
-            var values = new Dictionary<string, string>
-            {
-            { "thing1", "hello" },
-            { "thing2", "world" }
-            };
+            var armd = new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no);
+            //var armd1 = new ArmazemDtoRequest(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude);
+           
+            var json = JsonConvert.SerializeObject(armd);
+            var data = new StringContent(json,Encoding.UTF8,"application/json");
 
-             var content = new FormUrlEncodedContent(values);
+            var url = "http://vs272.dei.isep.ipp.pt:2228/criarArmazem";
+            
+            var response = await client.PostAsync(url,data);
 
-            var response = await client.PostAsync("http://www.example.com/recepticle.aspx", content);
+            var result = await response.Content.ReadAsStringAsync();
 
-            var responseString = await response.Content.ReadAsStringAsync();
+            Console.WriteLine("-------------------------------------"+result+"----------------------------------------");
+            
+            Console.WriteLine("oooooo"+json+"oooooo");
 
-            return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude);
+
+            return armd;
         }
 
         public async Task<ArmazemDto> UpdateAsync(ArmazemDto dto)
@@ -77,7 +88,7 @@ namespace DDDSample1.Domain.Armazens
 
             await this._unitOfWork.CommitAsync();
 
-            return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude);
+            return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no);
         }
 
         public async Task<ArmazemDto> InactivateAsync(ArmazemId id)
@@ -92,7 +103,7 @@ namespace DDDSample1.Domain.Armazens
             
             await this._unitOfWork.CommitAsync();
 
-            return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude);
+            return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no);
         }
 
          public async Task<ArmazemDto> DeleteAsync(ArmazemId id)
@@ -108,7 +119,7 @@ namespace DDDSample1.Domain.Armazens
             this._repo.Remove(arm);
             await this._unitOfWork.CommitAsync();
 
-            return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude);
+            return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no);
         }
 
     }
