@@ -58,7 +58,7 @@ namespace DDDSample1.Domain.Armazens
             var json = JsonConvert.SerializeObject(armd1);
             var data = new StringContent(json,Encoding.UTF8,"application/json");
 
-            var url = "http://vs272.dei.isep.ipp.pt:2228/criarArmazem";
+            var url = "https://www.google.com/";
             
             var response = await client.PostAsync(url,data);
 
