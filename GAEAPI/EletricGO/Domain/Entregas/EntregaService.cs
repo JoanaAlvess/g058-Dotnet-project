@@ -67,7 +67,7 @@ namespace DDDSample1.Domain.Entregas
             var json = JsonConvert.SerializeObject(entDtoRequest);
             var data = new StringContent(json,Encoding.UTF8,"application/json");
 
-            var url = "http://vs272.dei.isep.ipp.pt:2228/criarEntrega";
+            var url = "https://vs-gate.dei.isep.ipp.pt:10272/criarEntrega";
 
             var response = await client.PostAsync(url,data);
             var result = await response.Content.ReadAsStringAsync();
