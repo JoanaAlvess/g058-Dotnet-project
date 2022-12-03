@@ -48,17 +48,20 @@ namespace PrimeService.Tests.TestesUnitarios.Domain.Entregas {
             Assert.Null(result.Result);
         }
 
-        /* [Fact]
+        [Fact]
         public void AddAsyncTest(){
-            Entrega _entrega = new Entrega(new ArmazemId(new Guid()), "2001/12/11", 12, 6, 3);
-            CreatingEntregaDto cdto = new CreatingEntregaDto(_entrega._ArmazemId, "2001/12/11", 12, 6, 3);
+            ArmazemId entId = new ArmazemId(new Guid());
+            string entIdString = entId.AsString();
+
+            Entrega _entrega = new Entrega(entId, "2001/12/11", 12, 6, 3);
+            CreatingEntregaDto cdto = new CreatingEntregaDto(entIdString, "2001/12/11", 12, 6, 3);
             EntregaDto entregaDto = new EntregaDto(_entrega.Id.AsGuid(), _entrega._ArmazemId, "2001/12/11", 12, 6, 3);
             
             _repo.Setup(ent => ent.AddAsync(_entrega)).ReturnsAsync(_entrega);
             Task<EntregaDto> result = _service.AddAsync(cdto);
 
             Assert.Equal(result.Result.ToString(), entregaDto.ToString());
-        }  */
+        } 
 
         [Fact]
         public void UpdateDataDeEntregaTest(){
