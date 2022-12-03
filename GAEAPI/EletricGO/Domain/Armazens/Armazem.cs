@@ -25,7 +25,7 @@ namespace DDDSample1.Domain.Armazens{
              this.Active = true;
         }
 
-        public Armazem(double longitude, double latitude, string endereco, string designacao, string municipio, string lojaId)
+       /* public Armazem(double longitude, double latitude, string endereco, string designacao, string municipio, string lojaId)
         {
             this.Id = new ArmazemId(Guid.NewGuid());
             this._Longitude = new Longitude(longitude);
@@ -35,7 +35,7 @@ namespace DDDSample1.Domain.Armazens{
             this._Designacao = new Designacao(designacao);
             this._Endereco = new Endereco(endereco); 
             this._CidadeNo = new CidadeNo(0);
-        } 
+        } */
         public Armazem(double longitude, double latitude, string endereco, string designacao, string municipio, string lojaId,int cidadeNo)
         {
             this.Id = new ArmazemId(Guid.NewGuid());

@@ -51,10 +51,11 @@ namespace DDDSample1.Domain.Armazens
 
             await this._unitOfWork.CommitAsync();
 
-            var armd = new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no);
-            //var armd1 = new ArmazemDtoRequest(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude);
+            var Id = arm.Id.AsGuid();
+            var armd = new ArmazemDto(Id, arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no);
+            var armd1 = new ArmazemDtoRequest(Id, arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no);
            
-            var json = JsonConvert.SerializeObject(armd);
+            var json = JsonConvert.SerializeObject(armd1);
             var data = new StringContent(json,Encoding.UTF8,"application/json");
 
             var url = "http://vs272.dei.isep.ipp.pt:2228/criarArmazem";
