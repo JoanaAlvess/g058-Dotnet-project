@@ -58,7 +58,7 @@ namespace DDDSample1.Domain.Armazens
             var json = JsonConvert.SerializeObject(armd1);
             var data = new StringContent(json,Encoding.UTF8,"application/json");
 
-            var url = "https://vs-gate.dei.isep.ipp.pt:10272/api/Armazens";
+            var url = "https://vs-gate.dei.isep.ipp.pt:30272/api/Armazens";
             
             var response = await client.PostAsync(url,data);
 
