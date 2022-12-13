@@ -28,9 +28,9 @@ namespace DDDSample1.Controllers
 
         // GET: api/Entregas/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<EntregaDto>> GetGetById(Guid id)
+        public async Task<ActionResult<EntregaDto>> GetGetById(string id)
         {
-            var ent = await _service.GetByIdAsync(new EntregaId(id));
+            var ent = await _service.GetByIdAsync(new EntregaId(new Guid(id)));
 
             if (ent == null)
             {
@@ -43,9 +43,9 @@ namespace DDDSample1.Controllers
 
         // GET: api/Entregas/5/6
         [HttpGet("entregasByArmazem/{id}")]
-        public async Task<ActionResult<IEnumerable<EntregaDto>>> GetEntregasByArmazem(Guid id)
+        public async Task<ActionResult<IEnumerable<EntregaDto>>> GetEntregasByArmazem(string id)
         {
-            var ent = await _service.GetByArmazemId(new ArmazemId(id));
+            var ent = await _service.GetByArmazemId(new ArmazemId(new Guid(id)));
 
             if (ent == null)
             {
