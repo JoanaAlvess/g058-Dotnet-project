@@ -58,7 +58,7 @@ namespace Tests.TestesUnitarios.Service
            
         }
 
-        [Fact]
+        /* [Fact]
         public void AddAsyncTest()
         {
 
@@ -73,7 +73,7 @@ namespace Tests.TestesUnitarios.Service
             Task<ArmazemDto> result = _service.AddAsync(cdto);
 
             Assert.Equal(result.Result.ToString(), adto.ToString());
-        }
+        } */
 
 
         /*  [Fact]
