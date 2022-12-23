@@ -9,7 +9,7 @@ using Moq;
 
 namespace Tests.TestesUnitarios.Service
 {
-   /* public class ArmazemServiceTest
+    public class ArmazemServiceTest
     {
         private readonly Mock<IUnitOfWork> _unit;
         private readonly Mock<IArmazemRepository> _repo;
@@ -25,21 +25,21 @@ namespace Tests.TestesUnitarios.Service
             _service = new ArmazemService(_unit.Object, _repo.Object);
             _unit.Setup(x => x.CommitAsync()).Returns(Task.FromResult(1));
             
-            cdto = new CreatingArmazemDto("Aramzem Grande Popular Do Porto XPO","Rua do Renan Bola Rebola,Porto,4000-100","Loja01","Porto",24,48);
+            cdto = new CreatingArmazemDto("Aramzem Grande Popular Do Porto XPO","Rua do Renan Bola Rebola,Porto,4000-100","Loja01","Porto",24,48,5);
             //Guid id = new Guid();
-            arm = new DDDSample1.Domain.Armazens.Armazem(48,24,"Rua do Renan Bola Rebola,Porto,4000-100","Aramzem Grande Popular Do Porto XPO","Porto","Loja01");
+            arm = new DDDSample1.Domain.Armazens.Armazem(48,24,"Rua do Renan Bola Rebola,Porto,4000-100","Aramzem Grande Popular Do Porto XPO","Porto","Loja01",5);
            
-            adto = new ArmazemDto(Guid.NewGuid(),"Aramzem Grande Popular Do Porto XPO","Rua do Renan Bola Rebola,Porto,4000-100","Loja01","Porto",24,48);
+            adto = new ArmazemDto(Guid.NewGuid(),"Aramzem Grande Popular Do Porto XPO","Rua do Renan Bola Rebola,Porto,4000-100","Loja01","Porto",24,48,5,true);
         }
 
         [Fact]
         public void GetAllAsyncTest()
         {
             var list = new List<Armazem>();
-            list.Add(new Armazem(48,24,"Rua do Renan Bola Rebola,Porto,4000-100","Aramzem Grande Popular Do Porto XPO","Porto","Loja01"));
+            list.Add(new Armazem(48,24,"Rua do Renan Bola Rebola,Porto,4000-100","Aramzem Grande Popular Do Porto XPO","Porto","Loja01", 5));
             _repo.Setup(x => x.GetAllAsync()).ReturnsAsync(list);
             List<ArmazemDto> listDto = list.ConvertAll<ArmazemDto>(arm => 
-                new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude)); 
+                new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude, arm._CidadeNo.no, arm.Active)); 
 
             var result =  _service.GetAllAsync();
            Assert.Equal(listDto.ToString(), result.Result.ToString());
@@ -48,11 +48,11 @@ namespace Tests.TestesUnitarios.Service
          [Fact]
         public void GetByIdTest()
         {
-            Armazem arm = new Armazem(48,24,"Rua do Renan Bola Rebola,Porto,4000-100","Aramzem Grande Popular Do Porto XPO","Porto","Loja01");
+            Armazem arm = new Armazem(48,24,"Rua do Renan Bola Rebola,Porto,4000-100","Aramzem Grande Popular Do Porto XPO","Porto","Loja01",5);
 
             _repo.Setup(x => x.GetByIdAsync(arm.Id)).ReturnsAsync(arm);
             var result =  _service.GetByIdAsync(arm.Id);
-            ArmazemDto armDto = new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude);
+            ArmazemDto armDto = new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude, arm._CidadeNo.no, arm.Active);
             
             Assert.Equal(result.Result.ToString(), armDto.ToString());
            
@@ -62,11 +62,11 @@ namespace Tests.TestesUnitarios.Service
         public void AddAsyncTest()
         {
 
-            cdto = new CreatingArmazemDto("Aramzem Grande Popular Do Porto XPO","Rua do Renan Bola Rebola,Porto,4000-100","Loja01","Porto",24,48);
+            cdto = new CreatingArmazemDto("Aramzem Grande Popular Do Porto XPO","Rua do Renan Bola Rebola,Porto,4000-100","Loja01","Porto",24,48,5);
 
-            arm = new DDDSample1.Domain.Armazens.Armazem(48,24,"Rua do Renan Bola Rebola,Porto,4000-100","Aramzem Grande Popular Do Porto XPO","Porto","Loja01");
+            arm = new DDDSample1.Domain.Armazens.Armazem(48,24,"Rua do Renan Bola Rebola,Porto,4000-100","Aramzem Grande Popular Do Porto XPO","Porto","Loja01",5);
  
-            adto = new ArmazemDto(arm.Id.AsGuid(),"Aramzem Grande Popular Do Porto XPO","Rua do Renan Bola Rebola,Porto,4000-100","Loja01","Porto",24,48);
+            adto = new ArmazemDto(arm.Id.AsGuid(),"Aramzem Grande Popular Do Porto XPO","Rua do Renan Bola Rebola,Porto,4000-100","Loja01","Porto",24,48,5,true);
             
             _repo.Setup(x => x.AddAsync(arm)).ReturnsAsync(arm);
             
@@ -94,14 +94,11 @@ namespace Tests.TestesUnitarios.Service
             
         } */
 
-       /*  [Fact]
+         [Fact]
          public void GetByIdTestNull(){
             _repo.Setup(ent => ent.GetByIdAsync(It.IsAny<ArmazemId>())).ReturnsAsync(() => null);
             var result =  _service.GetByIdAsync(new ArmazemId(new Guid()));
             Assert.Null(result.Result);
         }
-
-        
-    
-    }*/
+    }
 }
