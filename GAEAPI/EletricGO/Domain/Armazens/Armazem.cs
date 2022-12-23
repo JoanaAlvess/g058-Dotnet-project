@@ -1,6 +1,5 @@
 using System;
 using DDDSample1.Domain.Shared;
-using DDDSample1.Domain.Armazens;
 using DDDSample1.Domain.Entregas;
 using System.Collections.Generic;
 
@@ -46,11 +45,9 @@ namespace DDDSample1.Domain.Armazens{
             this._Designacao = new Designacao(designacao);
             this._Endereco = new Endereco(endereco); 
             this._CidadeNo = new CidadeNo(cidadeNo);
+            this.Active = true;
         } 
 
-
-        
-        
         public void ChangeLongitude(double longitude)
         {
             if (!this.Active)

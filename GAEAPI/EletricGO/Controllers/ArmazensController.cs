@@ -39,6 +39,13 @@ namespace DDDSample1.Controllers
             return arm;
         }
 
+        // GET: api/Armazens/5
+        [HttpGet("active")]
+        public async Task<ActionResult<IEnumerable<ArmazemDto>>> GetAllAtcive()
+        {
+            return await _service.GetAllActiveAsync();
+        }
+
           // POST: api/Entregas
         [HttpPost]
         public async Task<ActionResult<ArmazemDto>> Create(CreatingArmazemDto dto)

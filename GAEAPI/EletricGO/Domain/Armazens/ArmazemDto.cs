@@ -21,6 +21,8 @@ namespace DDDSample1.Domain.Armazens
 
         public int CidadeNo{get;set;}
 
+        public bool Active{get;set;}
+
         /*public ArmazemDto(Guid Id,string Designacao,string Endereco,string LojaId,string Municipio,double Latitude,double Longitude){
             this.Id = Id;
             this.Designacao = Designacao;
@@ -29,9 +31,10 @@ namespace DDDSample1.Domain.Armazens
             this.Municipio = Municipio;
             this.Latitude = Latitude;
             this.Longitude = Longitude;
+            this.CidadeNo = 0;
         }*/
 
-          public ArmazemDto(Guid Id,string Designacao,string Endereco,string LojaId,string Municipio,double Latitude,double Longitude,int cidadeNo){
+          public ArmazemDto(Guid Id,string Designacao,string Endereco,string LojaId,string Municipio,double Latitude,double Longitude,int cidadeNo,bool active){
             this.Id = Id;
             this.Designacao = Designacao;
             this.Endereco = Endereco;
@@ -40,6 +43,7 @@ namespace DDDSample1.Domain.Armazens
             this.Latitude = Latitude;
             this.Longitude = Longitude;
             this.CidadeNo = cidadeNo;
+            this.Active = active;
         }
     }
 }
