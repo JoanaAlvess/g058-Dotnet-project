@@ -30,7 +30,7 @@ namespace DDDSample1.Domain.Armazens
             var list = await this._repo.GetAllAsync();
             
          List<ArmazemDto> listDto = list.ConvertAll<ArmazemDto>(arm => 
-                new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no, arm.Active, arm._Altitude.altitude)); 
+                new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.lojaId, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no, arm.Active, arm._Altitude.altitude)); 
 
             return listDto;
         }
@@ -42,7 +42,17 @@ namespace DDDSample1.Domain.Armazens
             if(arm == null)
                 return null;
 
-            return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no, arm.Active, arm._Altitude.altitude);
+            return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.lojaId, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no, arm.Active, arm._Altitude.altitude);
+        }
+
+        public async Task<ArmazemDto> GetByLojaIdAsync(LojaId lojaId)
+        {
+            var arm = await this._repo.GetByLojaIdAsync(lojaId);
+            
+            if(arm == null)
+                return null;
+
+            return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.lojaId, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no, arm.Active, arm._Altitude.altitude);
         }
 
         public async Task<List<ArmazemDto>> GetAllActiveAsync()
@@ -50,7 +60,7 @@ namespace DDDSample1.Domain.Armazens
             var list = await this._repo.GetAllActiveAsync();
             
             List<ArmazemDto> listDto = list.ToList<Armazem>().ConvertAll<ArmazemDto>(arm => 
-                new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no, arm.Active, arm._Altitude.altitude)); 
+                new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.lojaId, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no, arm.Active, arm._Altitude.altitude)); 
 
             return listDto;
         }
@@ -64,8 +74,8 @@ namespace DDDSample1.Domain.Armazens
             await this._unitOfWork.CommitAsync();
 
             var Id = arm.Id.AsGuid();
-            var armd = new ArmazemDto(Id, arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no, arm.Active, arm._Altitude.altitude);
-            var armd1 = new ArmazemDtoRequest(Id, arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no);
+            var armd = new ArmazemDto(Id, arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.lojaId, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no, arm.Active, arm._Altitude.altitude);
+            var armd1 = new ArmazemDtoRequest(Id, arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.lojaId, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no);
            
             var json = JsonConvert.SerializeObject(armd1);
             var data = new StringContent(json,Encoding.UTF8,"application/json");
@@ -102,7 +112,7 @@ namespace DDDSample1.Domain.Armazens
 
             await this._unitOfWork.CommitAsync();
 
-            return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no, arm.Active, arm._Altitude.altitude);
+            return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.lojaId, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no, arm.Active, arm._Altitude.altitude);
         }
 
         public async Task<ArmazemDto> InactivateAsync(ArmazemId id)
@@ -117,7 +127,7 @@ namespace DDDSample1.Domain.Armazens
             
             await this._unitOfWork.CommitAsync();
 
-            return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no, arm.Active,arm._Altitude.altitude);
+            return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.lojaId, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no, arm.Active,arm._Altitude.altitude);
         }
 
          public async Task<ArmazemDto> DeleteAsync(ArmazemId id)
@@ -133,7 +143,7 @@ namespace DDDSample1.Domain.Armazens
             this._repo.Remove(arm);
             await this._unitOfWork.CommitAsync();
 
-            return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no, arm.Active,arm._Altitude.altitude);
+            return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.lojaId, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no, arm.Active,arm._Altitude.altitude);
         }
 
     }

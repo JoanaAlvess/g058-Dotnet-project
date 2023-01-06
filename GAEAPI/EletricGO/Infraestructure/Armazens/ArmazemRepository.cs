@@ -21,5 +21,10 @@ namespace DDDSample1.Infrastructure.Armazens
         {    
             return await this._armazens.Where(a => a.Active.Equals(true)).ToListAsync();
         }
+
+        public async Task<Armazem> GetByLojaIdAsync(LojaId lojaId)
+        {
+            return await this._armazens.Where(a => a._LojaId.lojaId.Equals(lojaId.lojaId)).FirstAsync();
+        }
     }
 }

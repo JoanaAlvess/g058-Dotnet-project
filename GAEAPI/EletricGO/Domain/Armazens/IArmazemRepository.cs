@@ -7,5 +7,6 @@ namespace DDDSample1.Domain.Armazens
     public interface IArmazemRepository: IRepository<Armazem, ArmazemId>
     {
         public Task<IList<Armazem>> GetAllActiveAsync();
+        public Task<Armazem> GetByLojaIdAsync(LojaId lojaId);
     }
 }

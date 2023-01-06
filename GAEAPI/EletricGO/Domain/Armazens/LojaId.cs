@@ -14,21 +14,21 @@ public class LojaId : IValueObject
         }
 
         
-        public string id {get; private set;}
+        public string lojaId {get; private set;}
 
     
-        public LojaId(string id){
-            setLojasId(id);
+        public LojaId(string lojaId){
+            setLojasId(lojaId);
         }
 
-         public void setLojasId(string id){
-            if(String.IsNullOrEmpty(id)){
+         public void setLojasId(string lojaId){
+            if(String.IsNullOrEmpty(lojaId)){
                 throw new BusinessRuleValidationException("vazio");
             }
-             if(id.Length != 6){
+             if(lojaId.Length != 6){
                 throw new BusinessRuleValidationException("invalido");
             }
-            this.id=id;
+            this.lojaId=lojaId;
         }
         
         

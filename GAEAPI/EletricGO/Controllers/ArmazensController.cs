@@ -39,6 +39,26 @@ namespace DDDSample1.Controllers
             return arm;
         }
 
+         // GET: api/Armazens/5/6  
+        [HttpGet("getByLojaId/{lojaId}")]
+        public async Task<ActionResult<ArmazemDto>> GetByLojaId(string lojaId)
+        {
+            try
+            {
+                var arm = await _service.GetByLojaIdAsync(new LojaId(lojaId));
+                
+                if (arm == null)
+                {
+                    return NotFound();
+                }
+                return Ok(arm);
+            }
+            catch(BusinessRuleValidationException ex)
+            {
+                return BadRequest(new {Message = ex.Message});
+            }
+        }
+
         // GET: api/Armazens/5
         [HttpGet("active")]
         public async Task<ActionResult<IEnumerable<ArmazemDto>>> GetAllAtcive()
@@ -56,7 +76,7 @@ namespace DDDSample1.Controllers
         }
 
         
-        // PUT: api/Entregas/5
+        // PUT: api/Armazens/5
         [HttpPut("{id}")]
         public async Task<ActionResult<ArmazemDto>> Update(Guid id, ArmazemDto dto)
         {

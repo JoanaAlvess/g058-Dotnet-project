@@ -39,7 +39,7 @@ namespace Tests.TestesUnitarios.Service
             list.Add(new Armazem(48,24,"Rua do Renan Bola Rebola,Porto,4000-100","Aramzem Grande Popular Do Porto XPO","Porto","Loja01", 5, 40));
             _repo.Setup(x => x.GetAllAsync()).ReturnsAsync(list);
             List<ArmazemDto> listDto = list.ConvertAll<ArmazemDto>(arm => 
-                new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude, arm._CidadeNo.no, arm.Active, arm._Altitude.altitude)); 
+                new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.lojaId, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude, arm._CidadeNo.no, arm.Active, arm._Altitude.altitude)); 
 
             var result =  _service.GetAllAsync();
            Assert.Equal(listDto.ToString(), result.Result.ToString());
@@ -52,7 +52,7 @@ namespace Tests.TestesUnitarios.Service
 
             _repo.Setup(x => x.GetByIdAsync(arm.Id)).ReturnsAsync(arm);
             var result =  _service.GetByIdAsync(arm.Id);
-            ArmazemDto armDto = new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.id, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude, arm._CidadeNo.no, arm.Active, arm._Altitude.altitude);
+            ArmazemDto armDto = new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.lojaId, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude, arm._CidadeNo.no, arm.Active, arm._Altitude.altitude);
             
             Assert.Equal(result.Result.ToString(), armDto.ToString());
            
