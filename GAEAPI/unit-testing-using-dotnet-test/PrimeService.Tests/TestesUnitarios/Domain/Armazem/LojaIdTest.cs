@@ -12,7 +12,7 @@ namespace PrimeService.Tests.TestesUnitarios.Domain.Armazens
             string lojaId = "Loja12";
             LojaId li = new LojaId(lojaId);
 
-            Assert.Equal(lojaId, li.id);
+            Assert.Equal(lojaId, li.lojaId);
         }
         
         [Fact]
