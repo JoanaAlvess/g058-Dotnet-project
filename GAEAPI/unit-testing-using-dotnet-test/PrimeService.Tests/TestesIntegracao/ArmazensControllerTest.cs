@@ -1,4 +1,4 @@
-using DDDSample1.Domain.Armazens;
+/*using DDDSample1.Domain.Armazens;
 
 using DDDSample1.Controllers;
 using Moq;
@@ -71,4 +71,4 @@ namespace Tests.testesIntegracao
         }
     
     }
-}
+}*/

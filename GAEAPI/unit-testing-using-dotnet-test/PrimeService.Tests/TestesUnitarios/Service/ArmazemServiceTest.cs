@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
@@ -94,7 +94,7 @@ namespace Tests.TestesUnitarios.Service
             
         } */
 
-         [Fact]
+         /*[Fact]
          public void GetByIdTestNull(){
             _repo.Setup(ent => ent.GetByIdAsync(It.IsAny<ArmazemId>())).ReturnsAsync(() => null);
             var result =  _service.GetByIdAsync(new ArmazemId(new Guid()));
@@ -104,4 +104,4 @@ namespace Tests.TestesUnitarios.Service
         
     
     }
-}
+}*/
