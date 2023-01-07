@@ -34,7 +34,7 @@ namespace PrimeService.Tests.TestesUnitarios.Controller.Entregas {
             entregaDto = new EntregaDto(_entrega.Id.AsGuid(), _entrega._ArmazemId, "2022/12/10", 12, 6, 3);
         }
 
-      /*[Fact]
+      [Fact]
         public async void ReturnsExpectedObjectWhenEntregaIsCreatedSuccessfully()
         {
             _repo.Setup(x => x.AddAsync(It.IsAny<Entrega>())).Returns(Task.FromResult<Entrega>(_entrega));
@@ -43,14 +43,14 @@ namespace PrimeService.Tests.TestesUnitarios.Controller.Entregas {
             var actionResult = Assert.IsType<ActionResult<EntregaDto>>(result);
             var createdAtActionResult = Assert.IsType<CreatedAtActionResult>(actionResult.Result);
             var returnValue = Assert.IsType<EntregaDto>(createdAtActionResult.Value);
-        }*/
+        }
 
-       /* [Fact]
+        [Fact]
         public async void ReturnsCreatedAtActionWhenEntregarIsCreatedSuccessfully(){
             _repo.Setup(x => x.AddAsync(It.IsAny<Entrega>())).Returns(Task.FromResult<Entrega>(_entrega));
             var result = await _controller.Create(cdto);
             Assert.IsType<CreatedAtActionResult>(result.Result);
-        }*/
+        }
 
         /* [Fact]
         public async void ReturnsBadRequestWhenEntregaAlreadyExists()

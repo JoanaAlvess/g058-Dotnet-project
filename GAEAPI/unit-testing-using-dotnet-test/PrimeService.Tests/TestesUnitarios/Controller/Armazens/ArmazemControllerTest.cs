@@ -23,7 +23,7 @@ namespace PrimeService.Tests.TestesUnitarios.Controller
             _service = new Mock<ArmazemService>();
             _controller = new ArmazensController(_service.Object);
             
-             cdto = new CreatingArmazemDto("Aramzem Grande Popular Do Porto XPO","Rua do Renan Bola Rebola,Porto,4000-100","Loja01","Porto",24,48,5,40);
+             cdto = new CreatingArmazemDto("Aramzem Grande Popular Do Porto XPO","Rua do Renan Bola Rebola,Porto,4000-100","Loja01","Porto",24,48,5);
           
             //Armazem arm = new DDDSample1.Domain.Armazens.Armazem(48,24,"Rua do Renan Bola Rebola,Porto,4000-100","Aramzem Grande Popular Do Porto XPO","Porto","Loja01");
            

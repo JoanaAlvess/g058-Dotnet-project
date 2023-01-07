@@ -61,11 +61,11 @@ namespace Tests.testesIntegracao
         public async void PostArmazemTest()
 
         {
-            CreatingArmazemDto cdto = new CreatingArmazemDto("Aramzem Grande Popular Do Porto XPO","Rua do Renan Bola Rebola,Porto,4000-100","Loja01","Porto",24,48,6,40);
+            CreatingArmazemDto cdto = new CreatingArmazemDto("Aramzem Grande Popular Do Porto XPO","Rua do Renan Bola Rebola,Porto,4000-100","Loja01","Porto",24,48,6);
 
-            Armazem arm = new DDDSample1.Domain.Armazens.Armazem(48,24,"Rua do Renan Bola Rebola,Porto,4000-100","Aramzem Grande Popular Do Porto XPO","Porto","Loja01",6,40);
+            Armazem arm = new DDDSample1.Domain.Armazens.Armazem(48,24,"Rua do Renan Bola Rebola,Porto,4000-100","Aramzem Grande Popular Do Porto XPO","Porto","Loja01",6);
 
-            ArmazemDto adto = new ArmazemDto(arm.Id.AsGuid(),"Aramzem Grande Popular Do Porto XPO","Rua do Renan Bola Rebola,Porto,4000-100","Loja01","Porto",24,48,6,true,40);
+            ArmazemDto adto = new ArmazemDto(arm.Id.AsGuid(),"Aramzem Grande Popular Do Porto XPO","Rua do Renan Bola Rebola,Porto,4000-100","Loja01","Porto",24,48,6,true);
             _repo.Setup(x => x.AddAsync(It.IsAny<Armazem>())).Returns(Task.FromResult<Armazem>(arm));
           
         }

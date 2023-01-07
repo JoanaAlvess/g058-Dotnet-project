@@ -19,6 +19,13 @@ using DDDSample1.Domain.Entregas;
 using System;
 using DDDSample1.Domain.Armazens;
 using DDDSample1.Infrastructure.Armazens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.Threading.Tasks;
+using ElettricGO;
+using DDDSample1.Infrastructure.Users;
+using DDDSample1.Domain.Users;
 
 namespace DDDSample1
 {
@@ -52,6 +59,49 @@ namespace DDDSample1
             
 
             services.AddControllers().AddNewtonsoftJson();
+
+            // auth 
+
+            services.Configure<AppSettings>(
+    Configuration.GetSection("ApplicationSettings"));
+
+services.AddAuthentication(x =>
+{
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddCookie(x =>
+{
+    x.Cookie.Name = "token";
+
+}).AddJwtBearer(x =>
+{
+    x.RequireHttpsMetadata = false;
+    x.SaveToken = true;
+    x.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["ApplicationSettings:Secret"])),
+        ValidateIssuer = false,
+        ValidateAudience = false
+    };
+    x.Events = new JwtBearerEvents
+    {
+        OnMessageReceived = context =>
+        {
+            context.Token = context.Request.Cookies["token"];
+            return Task.CompletedTask;
+        }
+    };
+
+});
+
+services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin", "Gestor Armazem"));
+    
+
+   
+});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,10 +119,9 @@ namespace DDDSample1
             app.UseCors("AllowAll");
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
@@ -97,6 +146,9 @@ namespace DDDSample1
 
             services.AddTransient<IArmazemRepository,ArmazemRepository>();
             services.AddTransient<ArmazemService>();
+
+            services.AddTransient<IUserRepository,UserRepository>();
+            services.AddTransient<UserService>();
         }
     }
 }

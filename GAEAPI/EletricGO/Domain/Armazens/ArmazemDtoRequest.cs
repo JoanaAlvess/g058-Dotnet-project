@@ -18,10 +18,9 @@ namespace DDDSample1.Domain.Armazens
         public double latitude{get; set;}
 
         public double longitude{get;set;}
-
         public int cidadeNo{get;set;}
 
-        public ArmazemDtoRequest(Guid id,string Designacao,string Endereco,string LojaId,string Municipio,double Latitude,double Longitude,int cidadeNo){
+        public ArmazemDtoRequest(Guid id,string Designacao,string Endereco,string LojaId,string Municipio,double Latitude,double Longitude,int cidade){
             this.id = id;
             this.designacao = Designacao;
             this.endereco = Endereco;
@@ -29,7 +28,7 @@ namespace DDDSample1.Domain.Armazens
             this.municipio = Municipio;
             this.latitude = Latitude;
             this.longitude = Longitude;
-            this.cidadeNo = cidadeNo;
+            this.cidadeNo = cidade;
         }
     }
 }

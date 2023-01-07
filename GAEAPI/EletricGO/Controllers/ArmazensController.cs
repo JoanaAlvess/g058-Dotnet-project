@@ -4,9 +4,11 @@ using System;
 using System.Threading.Tasks;
 using DDDSample1.Domain.Shared;
 using DDDSample1.Domain.Armazens;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DDDSample1.Controllers
 {
+    //[Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class ArmazensController : ControllerBase
@@ -76,7 +78,7 @@ namespace DDDSample1.Controllers
         }
 
         
-        // PUT: api/Armazens/5
+        // PUT: api/Entregas/5
         [HttpPut("{id}")]
         public async Task<ActionResult<ArmazemDto>> Update(Guid id, ArmazemDto dto)
         {

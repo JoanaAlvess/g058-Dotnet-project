@@ -45,6 +45,7 @@ namespace DDDSample1.Domain.Armazens
             return new ArmazemDto(arm.Id.AsGuid(), arm._Designacao.designacao ,arm._Endereco.endereco, arm._LojaId.lojaId, arm._Municipio.municipe, arm._Latitude.latitude, arm._Longitude.longitude,arm._CidadeNo.no, arm.Active, arm._Altitude.altitude);
         }
 
+        
         public async Task<ArmazemDto> GetByLojaIdAsync(LojaId lojaId)
         {
             var arm = await this._repo.GetByLojaIdAsync(lojaId);

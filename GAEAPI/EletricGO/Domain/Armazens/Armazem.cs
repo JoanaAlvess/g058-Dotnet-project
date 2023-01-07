@@ -13,11 +13,13 @@ namespace DDDSample1.Domain.Armazens{
         public Latitude _Latitude { get;  private set; }
         public Endereco _Endereco { get;  private set; }
         public Designacao _Designacao { get;  private set; }
+
         public CidadeNo _CidadeNo {get; private set;}
-        public Altitude _Altitude { get; private set; }
 
         public ICollection<Entrega> Entregas { get; set; }
         public bool Active{ get;  private set; }
+
+        public Altitude _Altitude { get; private set; }
 
         public Armazem()
         {

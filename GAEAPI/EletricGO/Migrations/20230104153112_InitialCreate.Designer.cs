@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DDDNetCore.Migrations
 {
     [DbContext(typeof(DDDSample1DbContext))]
-    [Migration("20221203161133_InitialCreate")]
+    [Migration("20230104153112_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -102,8 +102,37 @@ namespace DDDNetCore.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("DDDSample1.Domain.Users.User", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("DDDSample1.Domain.Armazens.Armazem", b =>
                 {
+                    b.OwnsOne("DDDSample1.Domain.Armazens.Altitude", "_Altitude", b1 =>
+                        {
+                            b1.Property<string>("ArmazemId")
+                                .HasColumnType("varchar(255)");
+
+                            b1.Property<double>("altitude")
+                                .HasColumnType("double");
+
+                            b1.HasKey("ArmazemId");
+
+                            b1.ToTable("Armazens");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ArmazemId");
+                        });
+
                     b.OwnsOne("DDDSample1.Domain.Armazens.CidadeNo", "_CidadeNo", b1 =>
                         {
                             b1.Property<string>("ArmazemId")
@@ -173,7 +202,7 @@ namespace DDDNetCore.Migrations
                             b1.Property<string>("ArmazemId")
                                 .HasColumnType("varchar(255)");
 
-                            b1.Property<string>("id")
+                            b1.Property<string>("lojaId")
                                 .HasColumnType("longtext");
 
                             b1.HasKey("ArmazemId");
@@ -215,6 +244,8 @@ namespace DDDNetCore.Migrations
                             b1.WithOwner()
                                 .HasForeignKey("ArmazemId");
                         });
+
+                    b.Navigation("_Altitude");
 
                     b.Navigation("_CidadeNo");
 
@@ -308,6 +339,103 @@ namespace DDDNetCore.Migrations
                     b.Navigation("_TempoColocar");
 
                     b.Navigation("_TempoRetirar");
+                });
+
+            modelBuilder.Entity("DDDSample1.Domain.Users.User", b =>
+                {
+                    b.OwnsOne("DDDSample1.Domain.Users.Email", "_Email", b1 =>
+                        {
+                            b1.Property<string>("UserId")
+                                .HasColumnType("varchar(255)");
+
+                            b1.Property<string>("email")
+                                .HasColumnType("longtext");
+
+                            b1.HasKey("UserId");
+
+                            b1.ToTable("Users");
+
+                            b1.WithOwner()
+                                .HasForeignKey("UserId");
+                        });
+
+                    b.OwnsOne("DDDSample1.Domain.Users.Nome", "_Nome", b1 =>
+                        {
+                            b1.Property<string>("UserId")
+                                .HasColumnType("varchar(255)");
+
+                            b1.Property<string>("nome")
+                                .HasColumnType("longtext");
+
+                            b1.HasKey("UserId");
+
+                            b1.ToTable("Users");
+
+                            b1.WithOwner()
+                                .HasForeignKey("UserId");
+                        });
+
+                    b.OwnsOne("DDDSample1.Domain.Users.Password", "_Password", b1 =>
+                        {
+                            b1.Property<string>("UserId")
+                                .HasColumnType("varchar(255)");
+
+                            b1.Property<string>("password")
+                                .HasColumnType("longtext");
+
+                            b1.HasKey("UserId");
+
+                            b1.ToTable("Users");
+
+                            b1.WithOwner()
+                                .HasForeignKey("UserId");
+                        });
+
+                    b.OwnsOne("DDDSample1.Domain.Users.Role", "_Role", b1 =>
+                        {
+                            b1.Property<string>("UserId")
+                                .HasColumnType("varchar(255)");
+
+                            b1.Property<string>("role")
+                                .HasColumnType("longtext");
+
+                            b1.HasKey("UserId");
+
+                            b1.ToTable("Users");
+
+                            b1.WithOwner()
+                                .HasForeignKey("UserId");
+                        });
+
+                    b.OwnsOne("DDDSample1.Domain.Users.Telefone", "_Telefone", b1 =>
+                        {
+                            b1.Property<string>("UserId")
+                                .HasColumnType("varchar(255)");
+
+                            b1.Property<int>("telefone")
+                                .HasColumnType("int");
+
+                            b1.HasKey("UserId");
+
+                            b1.ToTable("Users");
+
+                            b1.WithOwner()
+                                .HasForeignKey("UserId");
+                        });
+
+                    b.Navigation("_Email")
+                        .IsRequired();
+
+                    b.Navigation("_Nome")
+                        .IsRequired();
+
+                    b.Navigation("_Password")
+                        .IsRequired();
+
+                    b.Navigation("_Role");
+
+                    b.Navigation("_Telefone")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DDDSample1.Domain.Armazens.Armazem", b =>
