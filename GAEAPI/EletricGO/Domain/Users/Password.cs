@@ -16,16 +16,11 @@ namespace DDDSample1.Domain.Users{
             {
                 throw new BusinessRuleValidationException("Need a valid password to register User");
             }
-           // if(!Regex.IsMatch(Password,@"^(?=.[a-z])(?=.[A-Z])(?=.[0-9])[A-Za-z\d@$!%?& ]{8,}$")){
-            //    throw new BusinessRuleValidationException("Password needs to be at least 8 characters long, include at least one uppercase, one lowercase and one number");
-         //   }
+            if(!Regex.IsMatch(Password,@"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-z\d@$!%*?& ]{8,}$")){
+                throw new BusinessRuleValidationException("Password needs to be at least 8 characters long, include at least one uppercase, one lowercase and one number");
+            }
             // save password with hash + salt
             this.password = SecretHasher.Hash(Password);
         }
-
-
-
     }
-
-
 }
