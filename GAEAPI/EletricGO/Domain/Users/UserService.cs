@@ -1,10 +1,12 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using DDDSample1.Domain.Shared;
-
 using DDDSample1.Utils;
 using System;
 using Newtonsoft.Json;
+using System.Net.Http;
+using System.Text;
+using System.Linq;
 
 namespace DDDSample1.Domain.Users
 {
@@ -73,6 +75,16 @@ namespace DDDSample1.Domain.Users
             return role;
         }
 
+        public async Task<List<UserDto>> GetAllActiveAsync()
+        {
+            var list = await this._repo.GetAllActiveAsync();
+            
+            List<UserDto> listDto = list.ToList<User>().ConvertAll<UserDto>(user => 
+                new UserDto(user.Id.AsGuid(), user._Nome.nome, user._Role.role, user._Telefone.telefone, user._Email.email, user._Password.password));
+
+            return listDto;
+        }
+
         public async Task<UserDto> LoginUser(Login loginData)
         {
             
@@ -90,7 +102,7 @@ namespace DDDSample1.Domain.Users
             return new UserDto (user.Id.AsGuid(), user._Nome.nome, user._Role.role, user._Telefone.telefone, user._Email.email, user._Password.password)
                 ;
         }
-         public async Task<UserDto> InactivateAsync(string email)
+        public async Task<UserDto> InactivateAsync(string email)
         {
             var user = (await this._repo.GetUserByEmail(email));
 
@@ -121,8 +133,5 @@ namespace DDDSample1.Domain.Users
             return new UserDto(arm.Id.AsGuid(), arm._Nome.nome,arm._Role.role,arm._Telefone.telefone,arm._Email.email,arm._Password.password);
 
         }
-
     }
-
-        
-    }
+}

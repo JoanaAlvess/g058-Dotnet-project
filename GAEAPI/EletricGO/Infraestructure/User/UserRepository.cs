@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using DDDSample1.Domain.Users;
 using DDDSample1.Infrastructure.Shared;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +34,11 @@ namespace DDDSample1.Infrastructure.Users
                 ).FirstAsync();
 
             return user._Role;
+        }
+
+        public async Task<IList<User>> GetAllActiveAsync()
+        {    
+            return await this._users.Where(u => u.Active.Equals(true)).ToListAsync();
         }
     }
 }

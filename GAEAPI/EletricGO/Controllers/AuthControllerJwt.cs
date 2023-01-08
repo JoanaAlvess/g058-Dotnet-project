@@ -55,6 +55,13 @@ namespace DDDSample1.Controllers
             return JsonSerializer.Serialize(r.role);;
         }
 
+        // GET: api/Users/5
+        [HttpGet("Users/active")]
+        public async Task<ActionResult<IEnumerable<UserDto>>> GetAllAtcive()
+        {
+            return await _service.GetAllActiveAsync();
+        }
+
         [HttpPost("Login")]
         public async Task<IActionResult> LoginAsync([FromBody] Domain.Users.Login model)
         {

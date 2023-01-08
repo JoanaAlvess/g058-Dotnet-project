@@ -1,6 +1,6 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DDDSample1.Domain.Shared;
-using DDDSample1.Domain.Users;
 
 namespace DDDSample1.Domain.Users
 {
@@ -8,5 +8,6 @@ namespace DDDSample1.Domain.Users
     {
         public Task<User> GetUserByEmail(string email);
         public Task<Role> GetUserRolebyEmail(string email);
+        public Task<IList<User>> GetAllActiveAsync();
     }
 }
