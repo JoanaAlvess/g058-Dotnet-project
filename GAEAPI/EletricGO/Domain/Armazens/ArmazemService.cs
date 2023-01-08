@@ -123,7 +123,6 @@ namespace DDDSample1.Domain.Armazens
             if (arm == null)
                 return null;   
 
-            // change all fields
             arm.MarkAsInative();
             
             await this._unitOfWork.CommitAsync();

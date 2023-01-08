@@ -103,18 +103,18 @@ namespace DDDSample1.Controllers
             }
         }
 
-         // Inactivate: api/Armazens/5
-        [HttpDelete("{id}")]
+        // Inactivate: api/Armazens/5
+        [HttpPatch("{id}")]
         public async Task<ActionResult<ArmazemDto>> SoftDelete(Guid id)
         {
-            var ent = await _service.InactivateAsync(new ArmazemId(id));
+            var arm = await _service.InactivateAsync(new ArmazemId(id));
 
-            if (ent == null)
+            if (arm == null)
             {
                 return NotFound();
             }
 
-            return Ok(ent);
+            return Ok(arm);
         }
         
         // DELETE: api/Armazens/5
