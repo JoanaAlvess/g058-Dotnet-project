@@ -132,18 +132,18 @@ namespace DDDSample1.Controllers
             return Ok(ent);
         }
 
-         // Inactivate: api/Armazens/5
-        [HttpDelete("Users/{email}")]
+         // Inactivate: api/Users/5
+        [HttpPatch("Users/{email}")]
         public async Task<ActionResult<UserDto>> SoftDelete(string email)
         {
-            var ent = await _service.InactivateAsync(email);
+            var user = await _service.InactivateAsync(email);
 
-            if (ent == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return Ok(ent);
+            return Ok(user);
         }
         
         // DELETE: api/Armazens/5

@@ -92,17 +92,16 @@ namespace DDDSample1.Domain.Users
         }
          public async Task<UserDto> InactivateAsync(string email)
         {
-            var arm = (await this._repo.GetUserByEmail(email));
+            var user = (await this._repo.GetUserByEmail(email));
 
-            if (arm == null)
+            if (user == null)
                 return null;   
 
-            // change all fields
-            arm.MarkAsInative();
+            user.MarkAsInative();
             
             await this._unitOfWork.CommitAsync();
 
-            return new UserDto(arm.Id.AsGuid(), arm._Nome.nome,arm._Role.role,arm._Telefone.telefone,arm._Email.email,arm._Password.password);
+            return new UserDto(user.Id.AsGuid(), user._Nome.nome,user._Role.role,user._Telefone.telefone,user._Email.email,user._Password.password);
         }
 
          public async Task<UserDto> DeleteAsync(string email)
